@@ -1,33 +1,64 @@
-
 {{ define "main" }}
     <div class="bgimg">
-        <video autoplay muted loop poster="poster.jpg">
+        <video autoplay loop playsinline muted poster="patchania-events.jpg">
             {{ if .Site.Params.background }}
                 <source src="{{ .Site.Params.background }}" type="video/mp4">
             {{ else }}
-                <source src="bg.mp4" type="video/mp4">
+                <source src="lechat_dj_happy_new_year.mp4" type="video/mp4">
             {{ end }}
         </video>
+        {{ if .Site.Params.enableVideoSound }}
+        <button id="unmuteBtn" class="unmute-btn" aria-label="Unmute video">🔊 Unmute</button>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const v = document.querySelector('.bgimg video');
+            const b = document.getElementById('unmuteBtn');
+            if (!v || !b) return;
+            
+            b.addEventListener('click', () => {
+                v.muted = false;
+                const p = v.play();
+                if (p && p.catch) p.catch(() => {});
+                b.style.display = 'none'; // Hide instead of remove for potential re-show
+            });
+            
+            // Optional: Show mute button again if user pauses/mutes manually
+            v.addEventListener('volumechange', () => {
+                if (v.muted && b.style.display === 'none') {
+                    b.style.display = 'block';
+                    b.textContent = '🔊 Unmute';
+                }
+            });
+        });
+        </script>
+        {{ end }}
+        {{ if .Site.Params.twitter.enable }}
+            <div class="topright"> 
+                {{ partial "twitter-feed.html" . }}
+            </div>        
+        {{ end }}
         <div class="topleft">
             {{ if .Site.Params.title }}
                 <p>{{ .Site.Params.title }}</p>
+                <h1 id="demo"></h1>
+                <div id="countdown" data-release="{{ .Site.Params.release }}"></div>
             {{ else }}
-                <p>Coming Soon HUGO !</p>
+                <p>Coming Soon HUGO</p>
             {{ end }}
+        </div>
+        <div class="topmiddle">
+            <h1 id="demo"></h1>
+            <div id="countdown" data-release="{{ .Site.Params.release }}"></div>
         </div>
         <div class="middle">
             {{ if .Site.Params.message }}
                 <h1>{{ .Site.Params.message }}</h1>
             {{ else }}
-                <h1>COMING SOON</h1>
+                <h1></h1>
             {{ end }}
-            <hr>
-            <p id="demo"></p>
-            <div id="countdown" data-release="{{ .Site.Params.release }}"></div>
         </div>
         <div class="bottomleft">
-            <p>
-            {{ .Site.Params.description}}</p>
+            <p class="glow-text">{{ .Site.Params.description}}</p>
         </div>
     </div>
     <div class="left">
