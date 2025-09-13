@@ -255,3 +255,267 @@ width: 40%;
         transform: scale(1.05);
     }
 }
+
+/* Enhanced Mobile Responsiveness for All Smartphones */
+
+/* Large smartphones (414px and below) */
+@media screen and (max-width: 414px) {
+    .bgimg {
+        font-size: 16px; /* Reduce base font size for mobile */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    
+    .bgimg video {
+        object-position: center center;
+        height: 100vh; /* Full viewport height */
+        width: 100vw; /* Full viewport width */
+    }
+    
+    /* Title adjustments */
+    .topleft {
+        top: 10px;
+        left: 10px;
+        right: 10px; /* Prevent overflow */
+        max-width: calc(100vw - 20px);
+    }
+    
+    .topleft p {
+        font-size: 18px; /* Smaller title for mobile */
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+        word-wrap: break-word; /* Handle long text */
+    }
+    
+    /* Countdown adjustments */
+    .topleft h1, .topleft #countdown {
+        font-size: 16px;
+        line-height: 1.3;
+        margin-top: 8px;
+    }
+    
+    /* Bottom description */
+    .bottomleft {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: calc(100vw - 20px);
+    }
+    
+    .glow-text {
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 12px;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    
+    /* Unmute button */
+    .unmute-btn {
+        top: 70px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 18px;
+        min-height: 44px; /* Touch-friendly size */
+    }
+    
+    /* Top right adjustments */
+    .topright {
+        top: 10px;
+        right: 10px;
+        max-width: 100px;
+    }
+}
+
+/* Medium smartphones (375px and below) */
+@media screen and (max-width: 375px) {
+    .bgimg {
+        font-size: 14px;
+    }
+    
+    .topleft p {
+        font-size: 16px;
+        letter-spacing: 0px;
+    }
+    
+    .topleft h1, .topleft #countdown {
+        font-size: 14px;
+    }
+    
+    .glow-text {
+        font-size: 12px;
+        padding: 10px;
+    }
+    
+    .unmute-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        top: 60px;
+    }
+}
+
+/* Small smartphones (320px and below) */
+@media screen and (max-width: 320px) {
+    .bgimg {
+        font-size: 12px;
+    }
+    
+    .topleft {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+    }
+    
+    .topleft p {
+        font-size: 14px;
+        line-height: 1.1;
+    }
+    
+    .topleft h1, .topleft #countdown {
+        font-size: 12px;
+    }
+    
+    .bottomleft {
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+    }
+    
+    .glow-text {
+        font-size: 11px;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    .unmute-btn {
+        top: 50px;
+        right: 8px;
+        padding: 5px 8px;
+        font-size: 11px;
+        border-radius: 15px;
+    }
+    
+    .topright {
+        top: 8px;
+        right: 8px;
+        max-width: 80px;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .topleft {
+        top: 5px;
+        left: 5px;
+    }
+    
+    .topleft p {
+        font-size: 14px;
+    }
+    
+    .topleft h1, .topleft #countdown {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+    
+    .bottomleft {
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+    }
+    
+    .glow-text {
+        font-size: 10px;
+        padding: 6px;
+        border-radius: 6px;
+    }
+    
+    .unmute-btn {
+        top: 35px;
+        right: 5px;
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    
+    .topright {
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* General mobile improvements */
+@media screen and (max-width: 768px) {
+    /* Ensure no horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    .bgimg {
+        overflow-x: hidden;
+    }
+    
+    /* Better video positioning for mobile aspect ratios */
+    .bgimg video {
+        object-fit: cover;
+        object-position: center center;
+    }
+    
+    /* Improve text readability */
+    .topleft p, .topleft h1, .topleft #countdown {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9); /* Stronger shadow for mobile */
+    }
+    
+    .glow-text {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    }
+    
+    /* Touch-friendly elements */
+    .unmute-btn {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation; /* Prevent zoom on tap */
+    }
+    
+    /* Social icons adjustments */
+    .social-icons-list .social-icon {
+        margin: 0 4px;
+        height: 20px;
+        width: 20px;
+    }
+}
+
+/* Very short screens (like folded phones or extreme landscape) */
+@media screen and (max-height: 400px) {
+    .topleft {
+        top: 3px;
+        left: 3px;
+    }
+    
+    .topleft p {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    
+    .topleft h1, .topleft #countdown {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+    
+    .bottomleft {
+        bottom: 3px;
+        left: 3px;
+        right: 3px;
+    }
+    
+    .glow-text {
+        font-size: 9px;
+        padding: 4px;
+    }
+    
+    .unmute-btn {
+        top: 25px;
+        right: 3px;
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+}
